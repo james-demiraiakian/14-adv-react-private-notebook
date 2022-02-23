@@ -22,7 +22,7 @@ export default function Auth({ isSigningUp = false }) {
         history.replace('/confirm-email');
       } else {
         const resp = await signInUser(email, password);
-        setUser({ resp });
+        setUser({ id: resp.id, email: resp.email });
         history.replace('/notes');
       }
     } catch (error) {
